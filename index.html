@@ -3,39 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المشروع الرئيسي - Home</title>
+    <title>الصفحة الرئيسية</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header>
         <div class="logo">مشروع الفريق</div>
         <nav>
             <ul>
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html" target="content-frame" onclick="setActive(this)">About</a></li>
-                <li><a href="animals.html" target="content-frame" onclick="setActive(this)">Animals</a></li>
-                <li><a href="news.html" target="content-frame" onclick="setActive(this)">News</a></li>
-                <li><a href="contact.html" target="content-frame" onclick="setActive(this)">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="animals.html">Animals</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <!-- هذا الإطار يعرض الصفحات الفرعية عند الضغط عليها من القائمة -->
-        <iframe name="content-frame" src="about.html"></iframe>
+        <h1>الصفحة الرئيسية (Home)</h1>
+        <p>مرحباً بكِ في الصفحة الرئيسية للموقع. تم ربط جميع صفحات المشروع بهذا الملف.</p>
     </main>
-
+<p>بس للتجربه</p>
     <footer>
         <p>&copy; 2026 جميع الحقوق محفوظة</p>
     </footer>
-
-    <script>
-        function setActive(element) {
-            const links = document.querySelectorAll('nav a');
-            links.forEach(link => link.classList.remove('active'));
-            element.classList.add('active');
-        }
-    </script>
 </body>
 </html>
