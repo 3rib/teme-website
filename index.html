@@ -12,7 +12,7 @@
         <div class="logo">مشروع الفريق</div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="home.html" target="content-frame" class="active" onclick="setActive(this)">Home</a></li>
                 <li><a href="about.html" target="content-frame" onclick="setActive(this)">About</a></li>
                 <li><a href="animals.html" target="content-frame" onclick="setActive(this)">Animals</a></li>
                 <li><a href="news.html" target="content-frame" onclick="setActive(this)">News</a></li>
@@ -22,8 +22,7 @@
     </header>
 
     <main>
-        <!-- هذا الإطار يعرض الصفحات الفرعية عند الضغط عليها من القائمة -->
-        <iframe name="content-frame" src="about.html"></iframe>
+        <iframe name="content-frame" src="home.html" title="محتوى الصفحة"></iframe>
     </main>
 
     <footer>
@@ -32,8 +31,7 @@
 
     <script>
         function setActive(element) {
-            const links = document.querySelectorAll('nav a');
-            links.forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
             element.classList.add('active');
         }
     </script>
