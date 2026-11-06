@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المشروع الرئيسي - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">مشروع الفريق</div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html" target="content-frame" onclick="setActive(this)">About</a></li>
+                <li><a href="animals.html" target="content-frame" onclick="setActive(this)">Animals</a></li>
+                <li><a href="news.html" target="content-frame" onclick="setActive(this)">News</a></li>
+                <li><a href="contact.html" target="content-frame" onclick="setActive(this)">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- هذا الإطار يعرض الصفحات الفرعية عند الضغط عليها من القائمة -->
+        <iframe name="content-frame" src="about.html"></iframe>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        function setActive(element) {
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => link.classList.remove('active'));
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
