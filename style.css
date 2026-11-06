@@ -25,11 +25,11 @@ header {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 4px 24px;
+    padding: 3px 24px;
 }
 
 .logo-img {
-    height: 5px;
+    height: 2px;
     width: auto;
 }
 
