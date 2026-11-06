@@ -1,10 +1,18 @@
 * {
     box-sizing: border-box;
 }
+
 body {
+    margin: 0;
+    font-family: Tahoma, Arial, sans-serif;
     background: #f7e3b5;
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+/* ===== الشريط العلوي ===== */
 header {
     background: transparent;
     padding: 0;
@@ -13,6 +21,7 @@ header {
 
 .topbar {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
@@ -20,27 +29,43 @@ header {
 }
 
 .logo-img {
-    height: 40px;
+    height: 50px;
     width: auto;
 }
 
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+nav li {
+    display: block;
+}
+
 nav a {
+    display: block;
     background: transparent;
     color: #000;
+    text-decoration: none;
     padding: 8px 12px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 nav a:hover {
-    background: transparent;
     text-decoration: underline;
 }
 
 nav a.active {
-    background: transparent;
-    color: #000;
     border-bottom: 3px solid #000;
 }
+
+/* ===== المحتوى ===== */
 main {
     flex: 1;
     max-width: 1000px;
@@ -50,15 +75,15 @@ main {
 }
 
 main h1 {
-    color: #1f4e79;
+    color: #5a3e1b;
 }
 
 .card {
-    background: #fff;
+    background: #fffaf0;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 16px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .grid {
@@ -67,38 +92,4 @@ main h1 {
     gap: 16px;
 }
 
-form label {
-    display: block;
-    margin: 12px 0 6px;
-}
-
-form input,
-form textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-family: inherit;
-}
-
-form button {
-    margin-top: 16px;
-    padding: 10px 24px;
-    background: #1f4e79;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-form button:hover {
-    background: #2d6aa3;
-}
-footer {
-    background: transparent;
-    color: #000;
-}
-
-footer p {
-    margin: 0;
-}
+/* ===== النماذج =====
