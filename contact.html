@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - تواصل معنا</title>
+    <title>Contact</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <div class="logo">مشروع تصميم مواقع ويب </div>
+        <div class="logo">Web Design Project</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -23,26 +23,133 @@
     </header>
 
     <main>
-        <h1>تواصل معنا</h1>
+        <h1>Contact Us</h1>
         <div class="card">
-            <form>
-                <label for="name">الاسم</label>
-                <input type="text" id="name" placeholder="اكتب اسمك">
+            <form id="contactForm">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <span id="nameError" style="color:red"></span>
 
-                <label for="email">البريد الإلكتروني</label>
+                <label for="email">Email</label>
                 <input type="email" id="email" placeholder="example@mail.com">
+                <span id="emailError" style="color:red"></span>
 
-                <label for="msg">الرسالة</label>
-                <textarea id="msg" rows="5" placeholder="اكتب رسالتك هنا"></textarea>
+                <label for="phone">Mobile</label>
+                <input type="text" id="phone" maxlength="10" placeholder="05XXXXXXXX">
+                <span id="phoneError" style="color:red"></span>
 
-                <button type="submit">إرسال</button>
+                <label for="category">Category</label>
+                <select id="category">
+                    <option value="">-- Select --</option>
+                    <option value="adoption">Adoption Inquiry</option>
+                    <option value="volunteer">Volunteering</option>
+                    <option value="complaint">Complaint</option>
+                    <option value="other">Other</option>
+                </select>
+                <span id="categoryError" style="color:red"></span>
+
+                <label for="msg">Message</label>
+                <textarea id="msg" rows="5" placeholder="Write your message here"></textarea>
+                <span id="msgError" style="color:red"></span>
+
+                <button type="submit">Send</button>
+                <button type="reset" id="resetBtn">Clear</button>
             </form>
         </div>
+
+        <section>
+            <h2>Contact Information</h2>
+            <p>Address: Tabuk, Saudi Arabia</p>
+            <p>Mobile: 05XXXXXXXX</p>
+            <p>Email: info@mawa.com</p>
+        </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 جميع الحقوق محفوظة</p>
+        <p id="dateTime"></p>
     </footer>
 
+    <script>
+        var form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var phone = document.getElementById("phone").value.trim();
+            var category = document.getElementById("category").value;
+            var msg = document.getElementById("msg").value.trim();
+
+            var ok = true;
+
+            // Name
+            if (name.length < 3) {
+                document.getElementById("nameError").textContent = "Please enter your full name (at least 3 characters)";
+                ok = false;
+            } else {
+                document.getElementById("nameError").textContent = "";
+            }
+
+            // Email
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").textContent = "Please enter a valid email address";
+                ok = false;
+            } else {
+                document.getElementById("emailError").textContent = "";
+            }
+
+            // Mobile
+            var phonePattern = /^05[0-9]{8}$/;
+            if (!phonePattern.test(phone)) {
+                document.getElementById("phoneError").textContent = "Mobile must start with 05 and be 10 digits";
+                ok = false;
+            } else {
+                document.getElementById("phoneError").textContent = "";
+            }
+
+            // Category
+            if (category === "") {
+                document.getElementById("categoryError").textContent = "Please select a category";
+                ok = false;
+            } else {
+                document.getElementById("categoryError").textContent = "";
+            }
+
+            // Message
+            if (msg.length < 10) {
+                document.getElementById("msgError").textContent = "Message is too short (at least 10 characters)";
+                ok = false;
+            } else {
+                document.getElementById("msgError").textContent = "";
+            }
+
+            // If everything is valid
+            if (ok) {
+                alert("Thank you, " + name + "! Your message has been sent successfully.");
+                form.reset();
+            }
+        });
+
+        // Clear button also removes error messages
+        document.getElementById("resetBtn").addEventListener("click", function () {
+            var errors = ["nameError", "emailError", "phoneError", "categoryError", "msgError"];
+            for (var i = 0; i < errors.length; i++) {
+                document.getElementById(errors[i]).textContent = "";
+            }
+        });
+
+        // Current date and time in the footer
+        function showDate() {
+            var now = new Date();
+            document.getElementById("dateTime").textContent = now.toLocaleString("en-US");
+        }
+        showDate();
+        setInterval(showDate, 1000);
+    </script>
+
+</body>
+</html>
 </body>
 </html>
