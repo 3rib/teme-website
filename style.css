@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: Tahoma, Arial, sans-serif;
-    background: #f7e3b5;
+    background: #F6F2EA;
     color: #222;
     min-height: 100vh;
     display: flex;
@@ -29,7 +29,7 @@ header {
 }
 
 .logo-img {
-    height: 10px;
+    height: 20px;
     width: auto;
 }
 
